@@ -1,7 +1,7 @@
 <h1>Authors</h1>
 <table border=1>
 	<tr>
-		<td>Mame of the Author</td>
+		<td>Name of the Author</td>
 		<td>Birth Date</td>
 		<td>Birth Place</td>
 		<td></td>
