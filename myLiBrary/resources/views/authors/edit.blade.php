@@ -19,11 +19,11 @@
 </p>
 {!! Form::label('Add the new birth date') !!}
 <p>
-	{!! Form::dateTime('birth_date', old('date'))!!}
+	{!! Form::dateTime('birth_date', old('birth_date'))!!}
 </p>
 	{!! Form::label('name', 'The new origin of the author') !!}
 <p>
-	{!!Form::text('name', old('origin'))!!}
+	{!!Form::text('origin', old('origin'))!!}
 </p>	
 <p>
 	{!! Form::label( 'Add the new author biography') !!}
