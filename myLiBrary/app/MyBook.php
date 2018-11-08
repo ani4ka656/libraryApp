@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class MyBook extends Model
 {
-     protected $fillable = [
+    protected $fillable = [
         'user_id', 'book_id', 'speed', 'pages_read' ,
     ];
-     public function book(){
+    public function book(){
     	return $this->belongsTo('App\Book');
     }
-     public function user(){
+    public function user(){
     	return $this->belongsTo('App\User');
     }
 }
