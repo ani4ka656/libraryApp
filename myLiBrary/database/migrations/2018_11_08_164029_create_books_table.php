@@ -19,6 +19,7 @@ class CreateBooksTable extends Migration
             $table->unsignedInteger('author_id');
             $table->foreign('author_id')->references('id')->on('authors');
             $table->unsignedInteger('total_number_of_pages');
+            $table->string('book_path');
             $table->timestamps();
         });
     }

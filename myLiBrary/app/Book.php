@@ -9,7 +9,7 @@ use App\MyBook;
 class Book extends Model
 {
       protected $fillable = [
-        'name', 'author_id','total_number_of_pages',
+        'name', 'author_id','total_number_of_pages', 'book_path',
     ];
      public function author(){
     	return $this->belongsTo('App\Author');
