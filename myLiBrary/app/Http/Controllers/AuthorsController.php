@@ -95,7 +95,7 @@ class AuthorsController extends Controller
 
         $author->save();
 
-         return redirect()->route('authors.index')->with('message', 'Success update!');
+        return redirect()->route('authors.index')->with('message', 'Success update!');
     }
 
     /**
@@ -107,8 +107,7 @@ class AuthorsController extends Controller
     public function destroy($id)
     {
         $author = Author::find($id);
-        // dd($course);
         $author->delete();
-        return redirect()->back();
+        return redirect()->route('authors.index');
     }
 }

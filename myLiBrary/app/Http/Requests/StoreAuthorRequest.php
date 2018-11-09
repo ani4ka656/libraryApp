@@ -34,7 +34,7 @@ class StoreAuthorRequest extends FormRequest
     public function messages(){
         return [
             'name.required'=>'Полето за името е задължително',
-            'birth_date.required'=>'Полето за рожденна дата е задължително',
+            'birth_date.required'=>'Полето за рожденната дата е задължително',
             'origin.required'=>'Полето origin е задължително',
             'biography.required'=>'Полето за биографията е задължително',
             'origin.max'=>'Не повече от 500 знака за полето за произхода.',

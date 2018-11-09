@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('authors', 'AuthorsController');
+Route::resource('books', 'BooksController');
