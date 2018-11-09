@@ -37,4 +37,4 @@
 	@endforeach
 </table>
 
-<a href="{{ route('books.create') }}">Add Author</a>
+<a href="{{ route('books.create') }}">Add Book</a>

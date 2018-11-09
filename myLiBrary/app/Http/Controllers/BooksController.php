@@ -46,6 +46,10 @@ class BooksController extends Controller
         $book->name = $request->name;
         $book->author_id = $request->author_id;
         $book->total_number_of_pages = $request->total_number_of_pages;
+        $filename = $request->file('book_path')->getClientOriginalName();
+        $path = public_path().'/downloads';
+        $request->file('book_path')->move($path, $filename);
+        $book->book_path = $filename;
 
         $book->save();
 
@@ -92,6 +96,10 @@ class BooksController extends Controller
         $book->name = $request->name;
         $book->author_id = $request->author_id;
         $book->total_number_of_pages = $request->total_number_of_pages;
+        $filename = $request->file('book_path')->getClientOriginalName();
+        $path = public_path().'/downloads';
+        $request->file('book_path')->move($path, $filename);
+        $book->book_path = $filename;
 
         $book->save();
 

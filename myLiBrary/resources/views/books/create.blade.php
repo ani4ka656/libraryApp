@@ -26,6 +26,9 @@
 	</select>
 </p>
 <p>
+	{!! Form::file('book_path', ['id'=>'book_path']) !!}
+</p>
+<p>
 	{!! Form::label('name', 'The number of pages') !!}
 	{!!Form::text('total_number_of_pages', old('total_number_of_pages'))!!}
 </p>	

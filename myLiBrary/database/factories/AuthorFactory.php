@@ -8,5 +8,6 @@ $factory->define(App\Author::class, function (Faker $faker) {
         'birth_date' => $faker->dateTime($max = '1980', $timezone = null),
         'origin'=> $faker->country,
         'biography' => $faker->paragraph(2),
+
     ];
 });
