@@ -1,4 +1,9 @@
+@extends('layouts.app')
+@section('title','Books')
 
+
+
+@section('content')
 <h1>
 	Edit Book
 </h1>
@@ -38,3 +43,4 @@
 
 {!! Form::submit('Save Book') !!}
 {!! Form::close() !!}
+@endsection

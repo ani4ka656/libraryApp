@@ -19,6 +19,7 @@ class CreateAuthorsTable extends Migration
             $table->dateTime('birth_date');
             $table->string('origin');
             $table->text('biography');
+            $table->integer('number_of_books');
             $table->timestamps();
         });
     }

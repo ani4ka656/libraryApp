@@ -1,3 +1,9 @@
+@extends('layouts.app')
+@section('title','Authors')
+
+
+
+@section('content')
 <h1>Authors</h1>
 <table border=1>
 	<tr>
@@ -36,3 +42,4 @@
 </table>
 
 <a href="{{ route('authors.create') }}">Add Author</a>
+@endsection
