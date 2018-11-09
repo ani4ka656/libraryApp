@@ -143,14 +143,6 @@ class BooksController extends Controller
         $response->headers->set('Content-Disposition', $disposition);
 
         return $response;
-
-        
-        // $txt = public_path().'/download/'.$book->book_path;
-
-        // //offer the content of txt as a download (logs.txt)
-        // $headers = ['Content-type' => 'text/plain', 'Content-Disposition' => sprintf('attachment; filename="test.txt"'), 'Content-Length' => sizeof($txt)];
-
-        // return Response::make($txt, 200, $headers);
     }
     
 }
