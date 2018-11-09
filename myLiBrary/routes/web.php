@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 Route::resource('authors', 'AuthorsController');
 Route::resource('books', 'BooksController');
+Route::get('/books/download/{id}', 'BooksController@download')->name('downloadbooks');

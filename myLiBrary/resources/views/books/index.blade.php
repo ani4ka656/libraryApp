@@ -15,7 +15,7 @@
 				</a>
 			</td>
 			<td>
-					{{ $book->author->name }}
+				{{ $book->author->name }}
 			</td>
 			<td>
 				{{ $book->total_number_of_pages }}
@@ -23,6 +23,11 @@
 			<td> 
 				<a href=" {{ route('books.edit', $book->id) }} ">
 					Update
+				</a>
+			</td>
+			<td> 
+				<a href=" {{ route('downloadbooks', $book->id) }} ">
+					Download
 				</a>
 			</td>
 			<td>

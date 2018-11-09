@@ -7,6 +7,10 @@ use App\Book;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+
 
 class BooksController extends Controller
 {
@@ -47,7 +51,7 @@ class BooksController extends Controller
         $book->author_id = $request->author_id;
         $book->total_number_of_pages = $request->total_number_of_pages;
         $filename = $request->file('book_path')->getClientOriginalName();
-        $path = public_path().'/downloads';
+        $path = public_path().'/download';
         $request->file('book_path')->move($path, $filename);
         $book->book_path = $filename;
 
@@ -65,7 +69,13 @@ class BooksController extends Controller
     public function show($id)
     {
         $book = Book::findOrFail($id);
-
+        // $path = public_path().'/download/'.$book->book_path;
+        // $name = $book->book_path;
+        // //$headers = array(
+        //     //'Content-Type' => 'application/txt',
+        // //);
+        // // dd($path);
+        // return Storage::download($path, $name);
         return view('books.show', compact('book'));
     }
 
@@ -97,13 +107,13 @@ class BooksController extends Controller
         $book->author_id = $request->author_id;
         $book->total_number_of_pages = $request->total_number_of_pages;
         $filename = $request->file('book_path')->getClientOriginalName();
-        $path = public_path().'/downloads';
+        $path = public_path().'/download';
         $request->file('book_path')->move($path, $filename);
         $book->book_path = $filename;
 
         $book->save();
 
-        return redirect()->route('books.index')->with('message', 'Success update!');
+         return redirect()->route('books.index')->with('message', 'Success update!');
     }
 
     /**
@@ -118,4 +128,29 @@ class BooksController extends Controller
         $book->delete();
         return redirect()->route('books.index');
     }
+    public function download(Request $request, $id){
+
+        $book = Book::find($id);
+        $txt = "Book \n";
+        $txt .= $book->id;
+        $txt .= $book->book_path;
+        $txt .= "is empty!";
+        $response = new StreamedResponse();
+        $response->setCallBack(function () use($txt) {
+            echo $txt;
+        });
+        $disposition = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $book->book_path);
+        $response->headers->set('Content-Disposition', $disposition);
+
+        return $response;
+
+        
+        // $txt = public_path().'/download/'.$book->book_path;
+
+        // //offer the content of txt as a download (logs.txt)
+        // $headers = ['Content-type' => 'text/plain', 'Content-Disposition' => sprintf('attachment; filename="test.txt"'), 'Content-Length' => sizeof($txt)];
+
+        // return Response::make($txt, 200, $headers);
+    }
+    
 }
