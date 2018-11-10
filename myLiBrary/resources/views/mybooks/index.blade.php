@@ -50,7 +50,10 @@
 				<td>Author</td>
 				<td>Total Pages</td>
 <<<<<<< HEAD
+<<<<<<< HEAD
 				<td style="text-align:center;">Add to Favorites</td>
+=======
+>>>>>>> 82f231f3fefd158638e059b772b9e8b9caafd3b2
 =======
 >>>>>>> 82f231f3fefd158638e059b772b9e8b9caafd3b2
 			</tr>
@@ -66,6 +69,9 @@
 =======
 					<td>
 						<input type="radio" name="book_id"  class="form-control" id="book_id" value=" {{ $book->id }}">	 
+<<<<<<< HEAD
+>>>>>>> 82f231f3fefd158638e059b772b9e8b9caafd3b2
+=======
 >>>>>>> 82f231f3fefd158638e059b772b9e8b9caafd3b2
 					</td>
 				</tr>

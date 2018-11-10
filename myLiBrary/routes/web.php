@@ -19,8 +19,11 @@
 //Route::resource('mybooks', 'MyBooksController');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Auth::routes();
 Route::group( ['middleware' => 'auth'] ,function(){ 
+=======
+>>>>>>> 82f231f3fefd158638e059b772b9e8b9caafd3b2
 =======
 >>>>>>> 82f231f3fefd158638e059b772b9e8b9caafd3b2
 
@@ -55,8 +58,11 @@ Route::group( ['middleware' => 'auth'] ,function(){
 		// });
 	});
 <<<<<<< HEAD
+<<<<<<< HEAD
 */
 =======
+=======
+>>>>>>> 82f231f3fefd158638e059b772b9e8b9caafd3b2
 Auth::routes();
 Route::get('/','AuthorsController@index')->name('home');
 Route::get('/home', 'AuthorsController@index')->name('home');
