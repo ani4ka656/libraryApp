@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Book;
 use App\MyBook;
+use App\Author;
 
 class MyBooksController extends Controller
 {
@@ -21,7 +22,7 @@ class MyBooksController extends Controller
                ->get();
  
          
-     $books=Book::all();
+        $books=Book::all();
      
         return view('mybooks.index' , compact('books','mybooks'));
     }
@@ -33,7 +34,9 @@ class MyBooksController extends Controller
      */
     public function create()
     {
-        //
+        // $books = Book::all();
+        // $mybooks = MyBook::all();
+        // return view('mybooks.create', compact('mybooks','books'));
     }
 
     /**
@@ -42,15 +45,13 @@ class MyBooksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBooksRequest $request)
+    public function store(Request $request)
     {
         $user = Auth::user()->id;
-        $mybook = MyBook::create([
-                'user_id' => $user,                
-                'book_id' => $request['book_id'], 
-                'speed'   => $request->speed,
-                'pages_read' => $request->pages_read,
-            ]);
+        $mybook = new MyBook();
+        $mybook->user_id = $user;                
+        $mybook->book_id = $request->book_id;
+        $mybook->save();
            return redirect()->route('mybooks.index')->withSuccess('New Book Successfully Created');  
     }
 

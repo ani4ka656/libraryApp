@@ -13,4 +13,12 @@ class Author extends Model
     public function books(){
     	return $this->hasMany('App\Book');
     }
+    public function sortByBooksCount(){
+        $authorBooksCount = Author::with('number_of_books')->get()->sortBy(function($author)
+        {
+            return $author->number_of_books->count();
+        });
+    }
+
+
 }

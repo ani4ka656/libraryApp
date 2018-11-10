@@ -62,6 +62,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .py-4 {
+                padding-left:25px;
+                padding-right:25px;
+            }
         </style>
     </head>
     <body>
