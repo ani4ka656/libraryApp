@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Book;
+use App\MyBook;
 
 class MyBooksController extends Controller
 {
@@ -13,7 +16,14 @@ class MyBooksController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user()->id;
+        $mybooks = MyBook::where('user_id', $user)
+               ->get();
+ 
+         
+     $books=Book::all();
+     
+        return view('mybooks.index' , compact('books','mybooks'));
     }
 
     /**

@@ -1,3 +1,9 @@
+@extends('layouts.app')
+@section('title','Authors')
+
+
+
+@section('content')
 <h1>
 	Add Author
 </h1>
@@ -30,3 +36,4 @@
 </p>	
 {!! Form::submit('Save Author') !!}
 {!! Form::close() !!}
+@endsection

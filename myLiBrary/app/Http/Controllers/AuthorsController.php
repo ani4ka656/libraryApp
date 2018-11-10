@@ -45,6 +45,7 @@ class AuthorsController extends Controller
         $author->birth_date = $request->birth_date;
         $author->origin = $request->origin;
         $author->biography = $request->biography;
+        $author->number_of_books = numberBetween($min = 0, $max = 100);
 
         $author->save();
 
@@ -92,7 +93,8 @@ class AuthorsController extends Controller
         $author->birth_date = $request->birth_date;
         $author->origin = $request->origin;
         $author->biography = $request->biography;
-
+        $author->number_of_books = numberBetween($min = 0, $max = 100);
+        
         $author->save();
 
         return redirect()->route('authors.index')->with('message', 'Success update!');

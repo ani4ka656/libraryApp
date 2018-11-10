@@ -28,7 +28,6 @@ class StoreAuthorRequest extends FormRequest
             'birth_date' => 'required',
             'origin' => 'required|max:20',
             'biography' => 'required|max:500',
-
         ];
     }
     public function messages(){
