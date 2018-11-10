@@ -15,7 +15,7 @@
 	<tr class="tableHeading">
 		<td>Name of the book</td>
 		<td>Name of the author</td>
-		<td>Of pagesNrmber o</td>
+		<td>Number of pages</td>
 
 		@if( Auth::user()->role == 'admin')
 		<td style="text-align:center;"><img src="{{URL::asset('/img/edit.png')}}" alt="edit Pic" height="25" width="25"></td>

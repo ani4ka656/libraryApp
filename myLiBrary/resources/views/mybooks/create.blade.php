@@ -14,7 +14,7 @@
  			@foreach( $books as $book )
 				<option value="{{ $book->id }}">{{ $book->name }}</option>
 			@endforeach
-	</select>
+		</select>
 
 		{!! Form::submit('Add This book') !!}						
 		{!! Form::close() !!}

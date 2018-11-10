@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Book;
 use App\MyBook;
 use App\Author;
-
 class MyBooksController extends Controller
 {
     /**
@@ -26,7 +23,6 @@ class MyBooksController extends Controller
      
         return view('mybooks.index' , compact('books','mybooks'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -39,7 +35,6 @@ class MyBooksController extends Controller
         $mybooks = MyBook::where('user_id', $user)->get();
         return view('mybooks.create', compact('mybooks','books'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -57,7 +52,6 @@ class MyBooksController extends Controller
         $mybook->save();
            return redirect()->route('mybooks.index')->with('message', 'Success update!');  
     }
-
     /**
      * Display the specified resource.
      *
@@ -68,9 +62,7 @@ class MyBooksController extends Controller
     {
         $book = Book::find($id);
         return view('books.show', compact('book'));
-
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -82,7 +74,6 @@ class MyBooksController extends Controller
         $mybook =MyBook::findOrFail($id);
         return view('mybooks.edit', compact('mybook'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -101,7 +92,6 @@ class MyBooksController extends Controller
                        
         return redirect()->route('mybooks.index')->with('message', 'Success update!'); 
     }
-
     /**
      * Remove the specified resource from storage.
      *
