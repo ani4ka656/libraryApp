@@ -6,10 +6,12 @@
 @section('content')
 <h1>Authors</h1>
 <table border=1>
-	<tr>
-		<td>Name of the Author</td>
+
+	<tr class="tableHeading">
+		<td><a href="">Name of the Author</a></td>
 		<td>Birth Date</td>
 		<td>Birth Place</td>
+		<td><a href="">Number of Books</a></td>
 		@if( Auth::user()->role == 'admin')
 		<td></td>
 		<td></td>
@@ -25,6 +27,9 @@
 			</td>
 			<td>
 				{{ $author->origin }}
+			</td>
+			<td> 
+				<a href=" {{ route('authors.show', $author->number_of_books) }}">{{ $author->number_of_books }}</a>
 			</td>
 			@if( Auth::user()->role == 'admin')
 			<td> 

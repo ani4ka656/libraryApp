@@ -25,6 +25,14 @@ class BooksController extends Controller
         return view('books.index', compact('books'));
     }
 
+    public function sortBooksAlphabeticly()
+    {   $content = Posts::with(array('books' => function($query) {
+            $query->order_by('name', 'asc');
+        }))->get();
+        //$books= Book::all()->sortBy('name', 'ASC');
+        //return view('books.index', compact('books'));
+        return $content;
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -144,5 +152,6 @@ class BooksController extends Controller
 
         return $response;
     }
+    
     
 }

@@ -112,4 +112,10 @@ class AuthorsController extends Controller
         $author->delete();
         return redirect()->route('authors.index');
     }
+    public function sortByBooksCount(){
+        $sortedauthors= Author::with('number_of_books')->get()->sortBy(function($author)
+        {
+            return $author->number_of_books->count();
+        });
+    }
 }
