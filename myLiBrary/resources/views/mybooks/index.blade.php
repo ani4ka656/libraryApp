@@ -23,7 +23,7 @@
 			</tr>
 		@foreach($mybooks as $mybook)
 			<tr>
-				<td>{{ $mybook->user->name }}</td>
+				<td>{{ $mybook->book->author->name }}</td>
 				<td>
 					<a href="{{route('mybooks.show', $mybook->id)}}">{{ $mybook->book->name }}
 					</a>
@@ -41,27 +41,34 @@
 			</tr>
 		@endforeach
 		</table>
-		<a href="{{route('mybooks.create')}}">Add</a>
-
+		<h1>
+			All Books
+		</h1>
 
 		<table class="table">
 			<tr class="tableHeading">
+				<td>Book ID</td>
 				<td>Book Name</td>
 				<td>Author</td>
 				<td>Total Pages</td>
 
-				<td style="text-align:center;">Add to Favorites</td>
+				<td style="text-align:center;"><img src="{{URL::asset('/img/star.png')}}" alt="delete Pic" height="28" width="28"></td>
 
 			</tr>
 			
 			@foreach($books as $book)
 				<tr>
+					<td> <a href="{{route('books.show', $book->id)}}"> {{ $book->id}} </a>	</td>
 					<td> <a href="{{route('books.show', $book->id)}}"> {{ $book->name}} </a>	</td>
 					<td>{{ $book->author->name}}</td>
 					<td>{{ $book->total_number_of_pages }}</td>
-
+					
 					<td style="text-align:center;">
-						<a href="{{route('mybooks.create', $book->id)}}"><img src="{{URL::asset('/img/star.png')}}" alt="delete Pic" height="30" width="30"></a>
+					<form action="{{ route('mybooks.store')}}" role="form" method="POST" >
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<input type="hidden" name="book_id"   id="book_id" value=" {{ $book->id }}">
+						<input type="submit" value="Add to My Books">
+					</form>
 					</td>
 				</tr>
 			@endforeach
