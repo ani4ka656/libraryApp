@@ -44,14 +44,14 @@
 			</tr>
 		@endforeach
 
-	</table>
-	<h1>All Books</h1>	
+	<form action="{{ route('mybooks.store')}}" role="form" method="POST" class="form-horizontal">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">				
+
 		<table class="table">
 			<tr>
 				<td>Book Name</td>
 				<td>Author</td>
 				<td>Total Pages</td>
-				<td>Add to Favorites</td>
 			</tr>
 			
 			@foreach($books as $book)
@@ -60,15 +60,22 @@
 					<td>{{ $book->author->name}}</td>
 					<td>{{ $book->total_number_of_pages }}</td>
 					<td>
-						<a href="{{route('mybooks.create', $book->id)}}">Add this book</a>
+						<input type="radio" name="book_id"  class="form-control" id="book_id" value=" {{ $book->id }}">	 
 					</td>
-
 				</tr>
 			@endforeach
-		</table>									
-				<button type="submit">
+		</table>
+		<div class="row">
+			<div class="col-md-6">									
+				<button type="submit" class="btn btn-primary btn-lg">
 						Add New book
 				</button>
+			</div>
+		</div>
+
+
+	</form>	
+								
 @endsection
 
 
