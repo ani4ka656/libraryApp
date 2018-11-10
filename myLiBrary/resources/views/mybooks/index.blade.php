@@ -61,7 +61,7 @@
 					<td>{{ $book->total_number_of_pages }}</td>
 
 					<td style="text-align:center;">
-						<a href="{{route('mybooks.create', $book->id)}}"><img src="{{URL::asset('/img/star.png')}}" alt="delete Pic" height="30" width="30"></a>
+						<a href="{{route('mybooks.create')}}"><img src="{{URL::asset('/img/star.png')}}" alt="delete Pic" height="30" width="30"></a>
 					</td>
 				</tr>
 			@endforeach
