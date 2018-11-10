@@ -44,8 +44,6 @@
 		<a href="{{route('mybooks.create')}}">Add</a>
 
 
-{!! Form::model($mybook, [ 'route'=>['mybooks.store'], 'files' => 'true']) !!}
-
 		<table class="table">
 			<tr class="tableHeading">
 				<td>Book Name</td>
@@ -64,10 +62,6 @@
 
 					<td style="text-align:center;">
 						<a href="{{route('mybooks.create', $book->id)}}"><img src="{{URL::asset('/img/star.png')}}" alt="delete Pic" height="30" width="30"></a>
-
-					<td>
-						<input type="radio" name="book_id"  class="form-control" id="book_id" value=" {{ $book->id }}">	 
-
 					</td>
 				</tr>
 			@endforeach
@@ -79,19 +73,6 @@
 				</button>
 			</div>
 		</div>
-
-
-		
-		<select name="book_id">
-	
- 			<option >{{--Select--}}</option>
- 			@foreach( $books as $book )
-				<option value="{{ $book->id }}">{{ $book->name }}</option>
-			@endforeach
-	</select>
-
-		{!! Form::submit('Add This book') !!}						
-		{!! Form::close() !!}
 								
 @endsection
 
