@@ -83,23 +83,16 @@
 
         <main class="py-4">
         <table>
-        @foreach($book as $key => $val)         
+        @foreach($mybook as $key => $val)         
     <tr>
         <td>Book name: </td>
-        <td>{{$book->name}}</td>
+        <td>{{$mybook->speed}}</td>
     </tr>
     <tr>
         <td>Author name: </td>
-        <td>{{$book->author->name}}</td>
+        <td>{{$mybook->pages_read}}</td>
     </tr>
-    <tr>
-        <td>Total pages: </td>
-        <td>{{$book->total_number_of_pages}}</td>
-    </tr>
-    <tr>
-        <td>Download this book free: </td>
-        <td>{{$book->book_path}}</td>
-    </tr>
+
     @break
     @endforeach
 </table>

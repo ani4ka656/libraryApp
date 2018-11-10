@@ -74,10 +74,10 @@
 				@else
 				<td> 
 					<a href="#">
-						<img src="{{URL::asset('/img/commingSoon.png')}}" alt="download Pic" height="25" width="25">
+						<img src="{{URL::asset('/img/commingSoon.png')}}" alt="download Pic" height="35" width="35">
 					</a>
 				</td>
-				@endelse
+				
 			@endif
 		</tr>
 

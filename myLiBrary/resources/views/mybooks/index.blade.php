@@ -64,15 +64,12 @@
 					<td>{{ $book->total_number_of_pages }}</td>
 					
 					<td style="text-align:center;">
-<<<<<<< HEAD
+
 					<form action="{{ route('mybooks.store')}}" role="form" method="POST" >
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="book_id"   id="book_id" value=" {{ $book->id }}">
 						<input type="submit" value="Add to My Books">
 					</form>
-=======
-						<a href="{{route('mybooks.create')}}"><img src="{{URL::asset('/img/star.png')}}" alt="delete Pic" height="30" width="30"></a>
->>>>>>> ef6673905d61616687c05225160c5bd3910e4ebf
 					</td>
 				</tr>
 			@endforeach
