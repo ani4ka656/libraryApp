@@ -27,7 +27,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-     public function mybook(){
+    public function mybook(){
         return $this->hasMany('App\MyBook');
     }
     public function isAdministrator() {

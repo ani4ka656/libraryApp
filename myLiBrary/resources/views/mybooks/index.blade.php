@@ -4,11 +4,11 @@
 
 
 @section('content')
-		<h1>My Books</h1>
-
-@if(Session::has('success'))
-	<button class="close" type="button" data-dismiss="alert">&times;</button>
-
+		<h1>
+			My Books
+		</h1>
+@if(Session::has('message'))
+	{{ Session::get('message') }}
 @endif
 
 	<table class="table">
@@ -43,38 +43,23 @@
 				</td>	
 			</tr>
 		@endforeach
-
-	<form action="{{ route('mybooks.store')}}" role="form" method="POST" class="form-horizontal">
-		<input type="hidden" name="_token" value="{{ csrf_token() }}">				
-
-		<table class="table">
-			<tr>
-				<td>Book Name</td>
-				<td>Author</td>
-				<td>Total Pages</td>
-			</tr>
-			
-			@foreach($books as $book)
-				<tr>
-					<td> <a href="{{route('books.show', $book->id)}}"> {{ $book->name}} </a>	</td>
-					<td>{{ $book->author->name}}</td>
-					<td>{{ $book->total_number_of_pages }}</td>
-					<td>
-						<input type="radio" name="book_id"  class="form-control" id="book_id" value=" {{ $book->id }}">	 
-					</td>
-				</tr>
-			@endforeach
 		</table>
-		<div class="row">
-			<div class="col-md-6">									
-				<button type="submit" class="btn btn-primary btn-lg">
-						Add New book
-				</button>
-			</div>
-		</div>
+		<a href="{{route('mybooks.create')}}">Add</a>
 
 
-	</form>	
+{!! Form::model($mybook, [ 'route'=>['mybooks.store'], 'files' => 'true']) !!}
+
+		
+		<select name="book_id">
+	
+ 			<option >{{--Select--}}</option>
+ 			@foreach( $books as $book )
+				<option value="{{ $book->id }}">{{ $book->name }}</option>
+			@endforeach
+	</select>
+
+		{!! Form::submit('Add This book') !!}						
+		{!! Form::close() !!}
 								
 @endsection
 

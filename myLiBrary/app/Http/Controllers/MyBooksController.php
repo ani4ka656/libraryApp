@@ -34,9 +34,11 @@ class MyBooksController extends Controller
      */
     public function create()
     {
-        // $books = Book::all();
-        // $mybooks = MyBook::all();
-        // return view('mybooks.create', compact('mybooks','books'));
+        $books = Book::all();
+        $user = Auth::user()->id;
+        $mybooks = MyBook::where('user_id', $user)
+               ->get();
+        return view('mybooks.create', compact('mybooks','books'));
     }
 
     /**
@@ -52,7 +54,7 @@ class MyBooksController extends Controller
         $mybook->user_id = $user;                
         $mybook->book_id = $request->book_id;
         $mybook->save();
-           return redirect()->route('mybooks.index')->withSuccess('New Book Successfully Created');  
+           return redirect()->route('mybooks.index')->with('message', 'Success update!');  
     }
 
     /**
@@ -96,7 +98,7 @@ class MyBooksController extends Controller
         
         $mybook->save();
                        
-        return redirect()->route('mybooks.index')->withSuccess('New Book Info is Added');
+        return redirect()->route('mybooks.index')->with('message', 'Success update!'); 
     }
 
     /**
@@ -109,6 +111,6 @@ class MyBooksController extends Controller
     {
         $mybook = MyBook::find($id);
         $mybook->delete();
-        return redirect()->route('mybooks.index')->withSuccess('BOOK deleted');
+        return redirect()->route('mybooks.index')->with('message', 'BOOK deleted');
     }
 }
