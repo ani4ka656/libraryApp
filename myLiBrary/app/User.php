@@ -30,4 +30,7 @@ class User extends Authenticatable
      public function mybook(){
         return $this->hasMany('App\MyBook');
     }
+    public function isAdministrator() {
+        return $this->roles()->where('name', 'admin')->exists();
+     }
 }

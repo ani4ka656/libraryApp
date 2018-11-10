@@ -10,8 +10,10 @@
 		<td>Name of the Author</td>
 		<td>Birth Date</td>
 		<td>Birth Place</td>
+		@if( Auth::user()->role == 'admin')
 		<td></td>
 		<td></td>
+		@endif
 	</tr>
 	@foreach($authors as $author)
 		<tr>
@@ -24,11 +26,13 @@
 			<td>
 				{{ $author->origin }}
 			</td>
+			@if( Auth::user()->role == 'admin')
 			<td> 
 				<a href=" {{ route('authors.edit', $author->id) }} ">
 					Update
 				</a>
 			</td>
+			
 			<td>
 		 		{!! Form::open(['route' => ['authors.destroy', $author->id], 'method' => 'delete'])!!} 
 			
@@ -36,10 +40,12 @@
 
 				{!! Form::close() !!}
 			</td>
+			@endif
 		</tr>
 
 	@endforeach
 </table>
-
+@if( Auth::user()->role == 'admin')
 <a href="{{ route('authors.create') }}">Add Author</a>
+@endif
 @endsection
