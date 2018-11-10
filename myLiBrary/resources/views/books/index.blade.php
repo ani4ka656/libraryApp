@@ -10,7 +10,7 @@
 @endif
 <hr>
 <h1>All Books</h1>
-
+<hr>
 <table border=1>
 	<tr class="tableHeading">
 		<td>Name of the book</td>

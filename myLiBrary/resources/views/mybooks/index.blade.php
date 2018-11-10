@@ -4,9 +4,9 @@
 
 
 @section('content')
-		<h1>
+<hr><h1>
 			My Books
-		</h1>
+		</h1><hr>
 @if(Session::has('message'))
 	{{ Session::get('message') }}
 @endif

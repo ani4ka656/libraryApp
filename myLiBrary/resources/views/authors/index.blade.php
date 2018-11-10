@@ -4,7 +4,9 @@
 
 
 @section('content')
+<hr>
 <h1>Authors</h1>
+<hr>
 <table border=1>
 
 	<tr class="tableHeading">
