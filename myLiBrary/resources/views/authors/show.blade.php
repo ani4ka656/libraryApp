@@ -101,7 +101,7 @@
         <td>{{$author->biography}}</td>
     </tr>
     <tr>
-        <td>Books cound: </td>
+        <td>Books count: </td>
         <td>{{$author->number_of_books}}</td>
     </tr>
     @break
