@@ -16,7 +16,7 @@
 		<td>Number of Books</td>
 		@if( Auth::user()->role == 'admin')
 			<td>Update</td>
-			<td>Delete</td>
+			<!-- <td>Delete</td> -->
 		@endif
 	</tr>
 	@foreach($authors as $author)
@@ -39,14 +39,14 @@
 					Update
 				</a>
 			</td>
-			
+			<!-- 
 			<td>
 		 		{!! Form::open(['route' => ['authors.destroy', $author->id], 'method' => 'delete'])!!} 
 			
 				{!! Form::submit('Delete') !!}				
 
 				{!! Form::close() !!}
-			</td>
+			</td> -->
 			@endif
 		</tr>
 
