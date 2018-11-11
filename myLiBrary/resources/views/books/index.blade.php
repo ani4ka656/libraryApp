@@ -21,7 +21,7 @@
 		<td style="text-align:center;"><img src="{{URL::asset('/img/edit.png')}}" alt="edit Pic" height="25" width="25"></td>
 		<td style="text-align:center;"><img src="{{URL::asset('/img/delete.png')}}" alt="delete Pic" height="25" width="25"></td>
 		@endif
-		@if( Auth::user()->role == 'admin')
+		@if( Auth::user())
 		<td style="text-align:center;"><img src="{{URL::asset('/img/download.png')}}" alt="download Pic" height="25" width="25"></td>
 		@endif
 	</tr>
@@ -35,7 +35,7 @@
 				<!--@endif-->
 
 				<!--@if( Auth::user()->role == 'reader')-->
-				<a href="@if($book->book_path) {{ route('books.show', $book->id) }} @endif">
+				<a href="{{ route('books.show', $book->id) }}">
 					<!--@if($book->book_path)-->
 					<img src="{{URL::asset('/img/download.png')}}" alt="download Pic" height="25" width="25"><!--@endif--> {{ $book->name }} 
 						
@@ -63,21 +63,21 @@
 				{!! Form::close() !!}
 			</td>
 			@endif
-			@if( Auth::user()->role == 'admin')
+			@if( Auth::user())
 				@if($book->book_path)
-				<td> 
-					<a href=" {{ route('downloadbooks', $book->id) }} ">
-						Download
-					</a>
-				</td>
-				@endif
+					<td> 
+						<a href=" {{ route('downloadbooks', $book->id) }} ">
+							Download
+						</a>
+					</td>
+		
 				@else
-				<td> 
-					<a href="#">
-						<img src="{{URL::asset('/img/commingSoon.png')}}" alt="download Pic" height="35" width="35">
-					</a>
-				</td>
-				
+					<td> 
+						<a href="#">
+							<img src="{{URL::asset('/img/commingSoon.png')}}" alt="download Pic" height="35" width="35">
+						</a>
+					</td>
+				@endif
 			@endif
 		</tr>
 
