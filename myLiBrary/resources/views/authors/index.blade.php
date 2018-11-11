@@ -10,13 +10,13 @@
 <table border=1>
 
 	<tr class="tableHeading">
-		<td><a href="">Name of the Author</a></td>
+		<td>Name of the Author</td>
 		<td>Birth Date</td>
 		<td>Birth Place</td>
-		<td><a href="">Number of Books</a></td>
+		<td>Number of Books</td>
 		@if( Auth::user()->role == 'admin')
-		<td></td>
-		<td></td>
+			<td>Update</td>
+			<td>Delete</td>
 		@endif
 	</tr>
 	@foreach($authors as $author)
@@ -53,6 +53,6 @@
 	@endforeach
 </table>
 @if( Auth::user()->role == 'admin')
-<a href="{{ route('authors.create') }}">Add Author</a>
+	<a href="{{ route('authors.create') }}">Add Author</a>
 @endif
 @endsection

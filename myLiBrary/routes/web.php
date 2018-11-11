@@ -36,7 +36,9 @@ Route::group( ['middleware' => 'auth'] ,function(){
 		// });
 	});
 Auth::routes();
-Route::get('/','AuthorsController@index')->name('home');
+Route::get('/', function () {
+		return view('login');
+		});
 Route::get('/home', 'AuthorsController@index')->name('home');
 /*
 Route::group( ['middleware' => 'auth'] ,function(){ 
