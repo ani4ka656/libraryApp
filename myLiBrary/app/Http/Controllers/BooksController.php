@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use App\Book;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreBooksRequest;
 use App\Http\Requests\UpdateBooksRequest;
@@ -23,15 +24,6 @@ class BooksController extends Controller
     {
         $books= Book::with('author')->orderBy('name', 'asc')->get();
         return view('books.index', compact('books'));
-    }
-
-    public function sortBooksAlphabeticly()
-    {   $content = Posts::with(array('books' => function($query) {
-            $query->order_by('name', 'asc');
-        }))->get();
-        //$books= Book::all()->sortBy('name', 'ASC');
-        //return view('books.index', compact('books'));
-        return $content;
     }
     /**
      * Show the form for creating a new resource.
@@ -77,13 +69,6 @@ class BooksController extends Controller
     public function show($id)
     {
         $book = Book::findOrFail($id);
-        // $path = public_path().'/download/'.$book->book_path;
-        // $name = $book->book_path;
-        // //$headers = array(
-        //     //'Content-Type' => 'application/txt',
-        // //);
-        // // dd($path);
-        // return Storage::download($path, $name);
         return view('books.show', compact('book'));
     }
 

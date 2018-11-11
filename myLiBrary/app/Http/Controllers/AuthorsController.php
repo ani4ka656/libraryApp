@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 
@@ -16,7 +17,6 @@ class AuthorsController extends Controller
      */
     public function index()
     {
-
         $authors = Author::orderBy('number_of_books', 'desc')->get();
         return view('authors.index', compact('authors'));
     }

@@ -32,6 +32,8 @@
 </p>	
 <p>
 	{!! Form::label( 'Add the author biography') !!}
+</p>
+<p>
 	{!! Form::textarea('biography', old('biography')) !!}
 </p>	
 {!! Form::submit('Save Author') !!}

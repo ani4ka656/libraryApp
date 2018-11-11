@@ -98,7 +98,20 @@
     </tr>
     <tr>
         <td>Download this book free: </td>
-        <td>{{$book->book_path}}</td>
+        @if($book->book_path)
+                    <td> 
+                        <a href=" {{ route('downloadbooks', $book->id) }} ">
+                            Download
+                        </a>
+                    </td>
+        
+                @else
+                    <td> 
+                        <a href="#">
+                            <img src="{{URL::asset('/img/commingSoon.png')}}" alt="download Pic" height="50" width="50">
+                        </a>
+                    </td>
+                @endif
     </tr>
     @break
     @endforeach

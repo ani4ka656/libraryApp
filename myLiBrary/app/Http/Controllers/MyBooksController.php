@@ -30,10 +30,7 @@ class MyBooksController extends Controller
      */
     public function create()
     {
-        $books = Book::all();
-        $user = Auth::user()->id;
-        $mybooks = MyBook::where('user_id', $user)->get();
-        return view('mybooks.create', compact('mybooks','books'));
+        //
     }
     /**
      * Store a newly created resource in storage.
@@ -50,7 +47,9 @@ class MyBooksController extends Controller
         $mybook->speed = 0;
         $mybook->pages_read = 0;
         $mybook->save();
-           return redirect()->route('mybooks.index')->with('message', 'Success update!');  
+
+        
+        return redirect()->route('mybooks.index')->with('message', 'Success update!');  
     }
     /**
      * Display the specified resource.

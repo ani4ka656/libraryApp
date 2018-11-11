@@ -18,28 +18,26 @@
 //Route::resource('books', 'BooksController');
 //Route::resource('mybooks', 'MyBooksController');
 
-
+Auth::routes();
 
 Route::group( ['middleware' => 'auth'] ,function(){ 
-
-
-	Route::resource('authors', 'AuthorsController', ['only'=> ['index', 'show']]);
 	Route::resource('authors', 'AuthorsController', ['only' => ['store', 'create', 'edit', 'update', 'destroy']])->middleware('isAdmin');
+	Route::resource('authors', 'AuthorsController', ['only'=> ['index', 'show']]);
+	Route::resource('books', 'BooksController', ['only' => ['store', 'create', 'edit', 'update', 'destroy',]])->middleware('isAdmin');
 	Route::resource('books', 'BooksController', ['only'=> ['index', 'show','download']]);
 	//Route::resource('books', 'BooksController', ['only' => ['store', 'create', 'edit', 'update', 'destroy']])->middleware('isAdmin');
-	Route::resource('books', 'BooksController', ['only' => ['store', 'create', 'edit', 'update', 'destroy',]])->middleware('isAdmin');
 	Route::resource('mybooks', 'MyBooksController', ['only'=> ['index', 'show','store', 'create', 'edit', 'update', 'destroy']])->middleware('isAdmin');
 	Route::resource('mybooks', 'MyBooksController', ['only' => ['index', 'show','store', 'create', 'edit', 'update', 'destroy']]);
 	Route::get('/books/download/{id}', 'BooksController@download')->name('downloadbooks');
+	Route::get('/books/show/{id}', 'BooksController@show')->name('books.show');
 		// Route::get('/home', function () {
 		// return view('books.index');
 		// });
 	});
-Auth::routes();
+
 Route::get('/', function () {
 		return view('login');
 		});
-Route::get('/home', 'AuthorsController@index')->name('home');
 /*
 Route::group( ['middleware' => 'auth'] ,function(){ 
 

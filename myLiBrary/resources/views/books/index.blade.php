@@ -1,16 +1,19 @@
 @extends('layouts.app')
 @section('title','Books')
 
-
-
 @section('content')
-@if( Auth::user()->role == 'admin')
 
-<p><a href="{{ route('books.create') }}"><img src="{{URL::asset('/img/book.png')}}" alt="download Pic" height="25" width="25"> Add Book</a><p>
-@endif
 <hr>
 <h1>All Books</h1>
 <hr>
+@if( Auth::user()->role == 'admin')
+	<p>
+		<a href="{{ route('books.create') }}">
+			<img href="{{ route('books.create') }}" src="{{URL::asset('/img/book.png')}}" alt="book Pic" height="25" width="25"> 
+			Add Book
+		</a>
+	</p>
+@endif
 <table border=1>
 	<tr class="tableHeading">
 		<td>Name of the book</td>
@@ -28,19 +31,18 @@
 	@foreach($books as $book)
 		<tr>
 			<td> 
-				<!--@if( Auth::user()->role == 'admin')-->
-				<a href=" {{ route('books.index', $book->id) }}">
+				<a href=" {{ route('books.show', $book->id) }}">
 					{{ $book->name }}
 				</a>
-				<!--@endif-->
 
-				<!--@if( Auth::user()->role == 'reader')-->
-				<a href="{{ route('books.show', $book->id) }}">
-					<!--@if($book->book_path)-->
-					<img src="{{URL::asset('/img/download.png')}}" alt="download Pic" height="25" width="25"><!--@endif--> {{ $book->name }} 
+
+				@if($book->book_path)
+				<a href=" {{ route('downloadbooks', $book->id) }}">
+					<img src="{{URL::asset('/img/download.png')}}" alt="download Pic" height="25" width="25">
+				@endif
 						
 				</a>
-				<!--@endif-->
+			
 			</td>
 			<td>
 				{{ $book->author->name }}
@@ -83,5 +85,4 @@
 
 	@endforeach
 </table>
-
 @endsection

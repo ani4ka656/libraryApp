@@ -31,7 +31,7 @@
 				{{ $author->origin }}
 			</td>
 			<td> 
-				<a href=" {{ route('authors.show', $author->number_of_books) }}">{{ $author->number_of_books }}</a>
+				{{ $author->number_of_books }}
 			</td>
 			@if( Auth::user()->role == 'admin')
 			<td> 
