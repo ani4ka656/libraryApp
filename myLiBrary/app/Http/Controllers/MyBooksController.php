@@ -16,7 +16,7 @@ class MyBooksController extends Controller
     {
         $user = Auth::user()->id;
         $mybooks = MyBook::where('user_id', $user)
-               ->get();
+               ->orderBy('speed', 'asc')->get();
  
          
         $books=Book::all();
@@ -84,8 +84,8 @@ class MyBooksController extends Controller
     public function update(Request $request, $id)
     {
         $mybook = MyBook::findOrFail($id);
-        $mybook->speed = $request['speed'];                
-        $mybook->pages_read = $request['pages_read'];
+        $mybook->speed = $request->speed;                
+        $mybook->pages_read = $request->pages_read;
         
         
         $mybook->save();

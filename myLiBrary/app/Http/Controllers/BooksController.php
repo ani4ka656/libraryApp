@@ -21,7 +21,7 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books= Book::with('author')->get();
+        $books= Book::with('author')->orderBy('name', 'asc')->get();
         return view('books.index', compact('books'));
     }
 

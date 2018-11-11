@@ -19,6 +19,7 @@
 				<td>Read speed</td>
 				<td>Pages read</td>
 				<td>Total pages</td>
+				<td style="text-align:center;"><img src="{{URL::asset('/img/edit.png')}}" alt="update Pic" height="25" width="25"></td>
 				<td style="text-align:center;"><img src="{{URL::asset('/img/delete.png')}}" alt="delete Pic" height="25" width="25"></td>
 			</tr>
 		@foreach($mybooks as $mybook)
@@ -31,6 +32,8 @@
 				<td>{{ $mybook->speed }}</td>
 				<td>{{ $mybook->pages_read }}</td>
 				<td>{{ $mybook->book->total_number_of_pages }}</td>
+				<td><a href="{{route('mybooks.edit', $mybook->id)}}">Update
+					</a></td>
 				<td style="text-align:center;">
 			 		{!! Form::open(['route' => ['mybooks.destroy', $mybook->id], 'method' => 'delete'])!!} 
 				

@@ -28,7 +28,7 @@ Route::group( ['middleware' => 'auth'] ,function(){
 	Route::resource('books', 'BooksController', ['only'=> ['index', 'show','download']]);
 	//Route::resource('books', 'BooksController', ['only' => ['store', 'create', 'edit', 'update', 'destroy']])->middleware('isAdmin');
 	Route::resource('books', 'BooksController', ['only' => ['store', 'create', 'edit', 'update', 'destroy',]])->middleware('isAdmin');
-	Route::resource('mybooks', 'MyBooksController', ['only'=> ['index', 'show']])->middleware('isAdmin');
+	Route::resource('mybooks', 'MyBooksController', ['only'=> ['index', 'show','store', 'create', 'edit', 'update', 'destroy']])->middleware('isAdmin');
 	Route::resource('mybooks', 'MyBooksController', ['only' => ['index', 'show','store', 'create', 'edit', 'update', 'destroy']]);
 	Route::get('/books/download/{id}', 'BooksController@download')->name('downloadbooks');
 		// Route::get('/home', function () {
