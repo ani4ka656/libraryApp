@@ -7,6 +7,10 @@
 <hr>
 <h1>Authors</h1>
 <hr>
+@if( Auth::user()->role == 'admin')
+	<a href="{{ route('authors.create') }}"><img href="{{ route('books.create') }}" src="{{URL::asset('/img/user.png')}}" alt="book Pic" height="25" width="25"> Add Author</a>
+@endif
+<p></p>
 <table border=1>
 
 	<tr class="tableHeading">
@@ -35,7 +39,7 @@
 			</td>
 			@if( Auth::user()->role == 'admin')
 			<td> 
-				<a href=" {{ route('authors.edit', $author->id) }} ">
+				<a class="btn btn-success" href=" {{ route('authors.edit', $author->id) }} ">
 					Update
 				</a>
 			</td>
@@ -52,7 +56,5 @@
 
 	@endforeach
 </table>
-@if( Auth::user()->role == 'admin')
-	<a href="{{ route('authors.create') }}">Add Author</a>
-@endif
+
 @endsection

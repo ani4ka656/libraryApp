@@ -32,9 +32,11 @@
 </p>	
 <p>
 	{!! Form::label( 'Add the new author biography') !!}
+</p>
+<p>
 	{!! Form::textarea('biography', old('biography')) !!}
 </p>
 
-{!! Form::submit('Save Author') !!}
+{!! Form::submit('Save Author',array('class'=>'btn btn-success')) !!}
 {!! Form::close() !!}
 @endsection

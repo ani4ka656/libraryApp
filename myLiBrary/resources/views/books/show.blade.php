@@ -100,7 +100,7 @@
         <td>Download this book free: </td>
         @if($book->book_path)
                     <td> 
-                        <a href=" {{ route('downloadbooks', $book->id) }} ">
+                        <a class="btn btn-primary" href=" {{ route('downloadbooks', $book->id) }} ">
                             Download
                         </a>
                     </td>

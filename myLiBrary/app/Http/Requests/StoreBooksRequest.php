@@ -27,7 +27,7 @@ class StoreBooksRequest extends FormRequest
             'name' => 'required|min:3',
             'author_id' => 'required',
             'total_number_of_pages' => 'required|numeric',
-            'book_path' => 'required|mimes:txt,doc',
+            'book_path' => 'required|mimes:txt',
 
         ];
     }

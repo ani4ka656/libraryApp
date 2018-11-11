@@ -60,7 +60,8 @@ class MyBooksController extends Controller
     public function show($id)
     {
         $book = Book::find($id);
-        return view('books.show', compact('book'));
+        $mybook = MyBook::find($id);
+        return view('books.show', compact('book','mybook'));
     }
     /**
      * Show the form for editing the specified resource.

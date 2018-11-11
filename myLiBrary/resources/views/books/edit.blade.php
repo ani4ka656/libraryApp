@@ -41,6 +41,6 @@
 </p>	
 
 
-{!! Form::submit('Save Book') !!}
+{!! Form::submit('Save Book',array('class'=>'btn btn-success')) !!}
 {!! Form::close() !!}
 @endsection

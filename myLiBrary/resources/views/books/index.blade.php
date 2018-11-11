@@ -36,10 +36,10 @@
 				</a>
 
 
-				@if($book->book_path)
+				<!--@if($book->book_path)
 				<a href=" {{ route('downloadbooks', $book->id) }}">
 					<img src="{{URL::asset('/img/download.png')}}" alt="download Pic" height="25" width="25">
-				@endif
+				@endif-->
 						
 				</a>
 			
@@ -53,14 +53,14 @@
 
 			@if( Auth::user()->role == 'admin')
 			<td> 
-				<a href=" {{ route('books.edit', $book->id) }} ">
+				<a class="btn btn-success"  href=" {{ route('books.edit', $book->id) }} ">
 					Update
 				</a>
 			</td>
 			<td>
 		 		{!! Form::open(['route' => ['books.destroy', $book->id], 'method' => 'delete'])!!} 
 			
-				{!! Form::submit('Delete') !!}				
+				{!! Form::submit('Delete',array('class'=>'btn btn-danger')) !!}				
 
 				{!! Form::close() !!}
 			</td>
@@ -68,15 +68,15 @@
 			@if( Auth::user())
 				@if($book->book_path)
 					<td> 
-						<a href=" {{ route('downloadbooks', $book->id) }} ">
+						<a class="btn btn-primary" href=" {{ route('downloadbooks', $book->id) }} ">
 							Download
 						</a>
 					</td>
 		
 				@else
-					<td> 
+					<td style="text-align: center;"> 
 						<a href="#">
-							<img src="{{URL::asset('/img/commingSoon.png')}}" alt="download Pic" height="35" width="35">
+							<img src="{{URL::asset('/img/commingSoon.png')}}" alt="download Pic" height="40" width="40">
 						</a>
 					</td>
 				@endif

@@ -32,21 +32,22 @@
 				<td>{{ $mybook->speed }}</td>
 				<td>{{ $mybook->pages_read }}</td>
 				<td>{{ $mybook->book->total_number_of_pages }}</td>
-				<td><a href="{{route('mybooks.edit', $mybook->id)}}">Update
+				<td style="text-align: center!important;"><a class="btn btn-success" href="{{route('mybooks.edit', $mybook->id)}}">Update
 					</a></td>
 				<td style="text-align:center;">
 			 		{!! Form::open(['route' => ['mybooks.destroy', $mybook->id], 'method' => 'delete'])!!} 
 				
-					{!! Form::submit('Delete') !!}				
+					{!! Form::submit('Delete',array('class'=>'btn btn-danger')) !!}				
 
 					{!! Form::close() !!}
 				</td>	
 			</tr>
 		@endforeach
 		</table>
+		<hr>
 		<h1>
 			All Books
-		</h1>
+		</h1><hr>
 
 		<table class="table">
 			<tr class="tableHeading">
@@ -71,7 +72,7 @@
 					<form action="{{ route('mybooks.store')}}" role="form" method="POST" >
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="book_id"   id="book_id" value=" {{ $book->id }}">
-						<input type="submit" value="Add to My Books">
+						<input class="btn btn-success" type="submit" value="Add to My Books">
 					</form>
 					</td>
 				</tr>

@@ -17,11 +17,13 @@
 <p>
 	Total number of pages:{{ $mybook->book->total_number_of_pages }}
 </p>
-	{!!Form::text('speed', old('speed'))!!}
+	Read speed: {!!Form::text('speed', old('speed'))!!}
 <p>
 </p>
-	{!!Form::text('pages_read', old('pages_read'))!!}
+	Pages read: {!!Form::text('pages_read', old('pages_read'))!!}
 <p>
-{!! Form::submit('Update My Book') !!}
+<p>
+{!! Form::submit('Update My Book',array('class'=>'btn btn-success')) !!}
+</p>
 {!! Form::close() !!}
 @endsection
