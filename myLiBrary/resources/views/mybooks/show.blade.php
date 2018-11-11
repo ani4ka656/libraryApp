@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   <!-- {{ config('app.name', 'Laravel') }}-->myLiBrary
+                   <!-- {{ config('app.name', 'Laravel') }}--><img src="{{URL::asset('/img/icon-evergreen-alt.png')}}" alt="logo" height="55" width="55"> myLiBrary
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
